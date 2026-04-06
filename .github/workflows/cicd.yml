@@ -6,9 +6,6 @@ on:
 jobs:
   compile:
     runs-on: ubuntu-latest
-    defaults:
-    run:
-      working-directory: 05-04
 
     steps:
     - uses: actions/checkout@v4
@@ -19,7 +16,7 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Build with Maven
-      run: mvn compile
+      run: mvn compile --file 05-04/pom.xml
 
   security-checks:
     runs-on: ubuntu-latest
